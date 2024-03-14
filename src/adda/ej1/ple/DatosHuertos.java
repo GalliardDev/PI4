@@ -11,6 +11,19 @@ public class DatosHuertos {
 	private static List<Verdura> verduras;
 	private static List<Huerto> huertos;
 		
+	public static void toConsole() {
+		System.out.println("Verduras:\n" + verduras.stream()
+							.map(v -> "    " + v.toString())
+							.collect(Collectors.joining("\n"))
+		);
+		System.out.println("Huertos:\n" + huertos.stream()
+		.map(h -> "    " + h.toString())
+		.collect(Collectors.joining("\n"))
+	    );	
+		System.out.println("Total verduras: " + N);
+		System.out.println("Total huertos: " + M);
+	}
+	
 	public static void iniDatos(String fichero) {
 		List<String> lineas = Files2.linesFromFile(fichero);
 		Integer aux = lineas.indexOf("// VARIEDADES");
@@ -20,6 +33,7 @@ public class DatosHuertos {
 		M = h.size();
 		huertos = Huerto.fromList(h);
 		verduras = Verdura.fromList(v);
+		toConsole();
 	}
 	
 	public static Verdura getVerdura(Integer i) {
@@ -46,21 +60,7 @@ public class DatosHuertos {
 		return verduras.get(i).incompatible(k) ? 1 : 0;
 	}
 	
-	public static void toConsole() {
-		System.out.println("Verduras:\n" + verduras.stream()
-							.map(v -> "    " + v.toString())
-							.collect(Collectors.joining("\n"))
-		);
-		System.out.println("Huertos:\n" + huertos.stream()
-		.map(h -> "    " + h.toString())
-		.collect(Collectors.joining("\n"))
-	    );	
-		System.out.println("Total verduras: " + N);
-		System.out.println("Total huertos: " + M);
-	}
-	
 	public static void main(String[] args) {
 		iniDatos("ficheros/ej1/Ejercicio1DatosEntrada1.txt");
-		toConsole();
 	}
 }

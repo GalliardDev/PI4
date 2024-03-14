@@ -1,21 +1,21 @@
 package adda.ej2.ple;
 
-public class Producto {
+public class ProductoCategoria {
 	private Integer id;
 	private Integer precio;
 	private Integer categoria;
 	private Integer valoracion;
 	
-	public static Producto of(String s) {
+	public static ProductoCategoria of(String s) {
 		String[] partes = s.split(":");
 		Integer id = Integer.parseInt(partes[0]);
 		Integer precio = Integer.parseInt(partes[1]);
 		Integer categoria = Integer.parseInt(partes[2]);
 		Integer valoracion = Integer.parseInt(partes[3]);
-		return new Producto(id, precio, categoria, valoracion);
+		return new ProductoCategoria(id, precio, categoria, valoracion);
 	}
 	
-	private Producto(Integer id, Integer precio, Integer categoria, Integer valoracion) {
+	private ProductoCategoria(Integer id, Integer precio, Integer categoria, Integer valoracion) {
 		this.id = id; 
 		this.precio = precio;
 		this.categoria = categoria;

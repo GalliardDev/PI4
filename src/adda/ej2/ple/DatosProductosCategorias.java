@@ -5,23 +5,34 @@ import java.util.stream.Collectors;
 
 import us.lsi.common.Files2;
 
-public class DatosProductos {
-	public static int N;
-	public static int M;
+public class DatosProductosCategorias {
+	public static int N; // productos
+	public static int M; // categorias
 	public static int PRES;
-	private static List<Producto> productos;
+	private static List<ProductoCategoria> productos;
+	
+	public static void toConsole() {
+		System.out.println("Presupuesto = " + PRES);
+		System.out.println("Productos:\n" + productos.stream()
+							.map(p -> "    " + p.toString())
+							.collect(Collectors.joining("\n"))
+		);
+		System.out.println("Total productos: " + N);
+		System.out.println("Total categorias: " + M);
+	}
 	
 	public static void iniDatos(String fichero) {
 		List<String> lineas = Files2.linesFromFile(fichero);
 		Integer presupuesto = Integer.parseInt(lineas.get(0).replace("Presupuesto = ", ""));
 		List<String> aux = lineas.subList(2, lineas.size());
 		PRES = presupuesto;
-		productos = aux.stream().map(Producto::of).toList();
+		productos = aux.stream().map(ProductoCategoria::of).toList();
 		N = productos.size();
 		M = productos.stream()
-				.map(Producto::getCategoria)
+				.map(ProductoCategoria::getCategoria)
 				.collect(Collectors.toSet())
 				.size();
+		toConsole();
 	}
 	
 	public static Integer getN() {
@@ -50,18 +61,7 @@ public class DatosProductos {
 		return productos.get(i).tieneCategoria(j) ? 1 : 0;
 	}
 	
-	public static void toConsole() {
-		System.out.println("Presupuesto = " + PRES);
-		System.out.println("Productos:\n" + productos.stream()
-							.map(p -> "    " + p.toString())
-							.collect(Collectors.joining("\n"))
-		);
-		System.out.println("Total productos: " + N);
-		System.out.println("Total categorias: " + M);
-	}
-	
 	public static void main(String[] args) {
 		iniDatos("ficheros/ej2/Ejercicio2DatosEntrada1.txt");
-		toConsole();
 	}
 }

@@ -8,10 +8,10 @@ import us.lsi.gurobi.GurobiLp;
 import us.lsi.gurobi.GurobiSolution;
 import us.lsi.solve.AuxGrammar;
 
-public class TestProductosPLE {
+public class TestProductosCategoriasPLE {
 	public static void model(String fichero) throws IOException {
-		DatosProductos.iniDatos(fichero);
-		AuxGrammar.generate(DatosProductos.class, "modelos/ej2.lsi", "modelos/gurobi/ej2.lp");
+		DatosProductosCategorias.iniDatos(fichero);
+		AuxGrammar.generate(DatosProductosCategorias.class, "modelos/ej2.lsi", "modelos/gurobi/ej2.lp");
 		Locale.setDefault(Locale.of("en", "US"));
 		GurobiSolution solution = GurobiLp.gurobi("modelos/gurobi/ej2.lp");
 		System.out.println(solution.toString());
