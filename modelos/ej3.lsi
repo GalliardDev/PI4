@@ -4,15 +4,15 @@ Integer getM()
 Integer getCantidad(Integer i)
 Integer getDemanda(Integer j)
 Integer getCoste(Integer i, Integer j)
-Integer N = getN()
-Integer M = getM()
+Integer n = getN()
+Integer m = getM()
 
 goal section
 min sum(getCoste(i,j) x[i,j], i in 0 .. n, j in 0 .. m)
 
 constraints section
-sum(x[i,j], j in 0 .. m) >= getDemanda(j), i in 0 .. n
-sum(x[i,j], i in 0 .. n) <= getCantidad(i), j in 0 .. m
+sum(x[i,j], i in 0 .. n) >= getDemanda(j), j in 0 .. m
+sum(x[i,j], j in 0 .. m) <= getCantidad(i), i in 0 .. n
 
 int
 x[i,j], i in 0 .. n, j in 0 .. m

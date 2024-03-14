@@ -29,6 +29,8 @@ public class DatosProductosTransportes {
 		Integer aux = lineas.indexOf("// PRODUCTOS Id_producto -> unidades=integer;coste_almacenamiento=(destino:coste)");
 		destinos = Destino.fromList(lineas.subList(1, aux));
 		productos = Producto.fromList(lineas.subList(aux + 1, lineas.size()));
+		N = productos.size();
+		M = destinos.size();
 		toConsole();
 	}
 	
@@ -50,5 +52,9 @@ public class DatosProductosTransportes {
 	
 	public static Integer getCoste(Integer i, Integer j) {
 		return productos.get(i).getCoste(j);
+	}
+	
+	public static void main(String[] args) {
+		iniDatos("ficheros/ej3/Ejercicio3DatosEntrada1.txt");
 	}
 }
