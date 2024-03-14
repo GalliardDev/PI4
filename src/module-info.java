@@ -1,7 +1,8 @@
 module PI4 {
-	requires transitive solve;
-	requires transitive partecomun;
-	requires transitive geneticos;
-	requires transitive datos_compartidos;
+	requires solve;
+	requires partecomun;
+	requires geneticos;
+	requires datos_compartidos;
 	exports adda.ej1.ple;
+	exports adda.ej2.ple;
 }

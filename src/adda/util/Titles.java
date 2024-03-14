@@ -15,6 +15,7 @@ public class Titles {
 	
 	public static String F2 = 
 			"""
+\n\n\n
 ####### ### #       #######     #####  
 #        #  #       #          #     # 
 #        #  #       #                # 
@@ -27,6 +28,7 @@ public class Titles {
 	
 	public static String F3 = 
 			"""
+\n\n\n
 ####### ### #       #######     #####  
 #        #  #       #          #     # 
 #        #  #       #                # 

@@ -1,0 +1,20 @@
+head section
+Integer getN()
+Integer getM()
+Integer getPrecio(Integer i)
+Integer getMediaValoraciones(Integer i)
+Integer getPresupuesto()
+Integer tieneCategoria(Integer i, Integer j)
+Integer n = getN()
+Integer m = getM()
+
+goal section
+min sum(getPrecio(i) x[i], i in 0 .. n)
+
+constraints section
+sum(tieneCategoria(i,j) x[i], i in 0 .. n) >= 1, j in 0 .. m
+sum(getMediaValoraciones(i), i in 0 .. n) >= 3
+getPrecio(i) x[i] <= getPresupuesto(), i in 0 .. n | tieneCategoria(i, j) = 1, j in 0 .. m
+
+bin
+x[i], i in 0 .. n
