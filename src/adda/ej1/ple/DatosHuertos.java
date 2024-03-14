@@ -41,6 +41,6 @@ public class DatosHuertos {
 	}
 	
 	public static Integer incompatible(Integer i, Integer k) {
-		return verduras.get(i).esIncompatible(k) ? 1 : 0;
+		return verduras.get(i).incompatible(k) ? 1 : 0;
 	}
 }

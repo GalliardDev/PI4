@@ -39,7 +39,7 @@ public class Verdura {
 		return this.incompatibilidades;
 	}
 	
-	public boolean esIncompatible(Integer k) {
+	public boolean incompatible(Integer k) {
 		return incompatibilidades.contains(k);
 	}
 	
