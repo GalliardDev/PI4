@@ -1,4 +1,4 @@
-package adda.ej3.ag;
+package adda.ej4.ag;
 
 import java.util.Locale;
 
@@ -6,8 +6,8 @@ import adda.util.Titles;
 import us.lsi.ag.agchromosomes.AlgoritmoAG;
 import us.lsi.ag.agstopping.StoppingConditionFactory;
 
-public class TestProductosTransportesAG {
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+public class TestPersonasAG {
+	@SuppressWarnings({ "rawtypes" })
 	private static void test(String fichero) {
 		Locale.setDefault(Locale.of("en", "US"));
 		
@@ -19,10 +19,10 @@ public class TestProductosTransportesAG {
 		StoppingConditionFactory.NUM_GENERATIONS = 5000;
 		StoppingConditionFactory.stoppingConditionType = StoppingConditionFactory.StoppingConditionType.GenerationCount;
 		
-		DatosProductosTransportesAG p = new DatosProductosTransportesAG(fichero);
+		DatosPersonasAG p = new DatosPersonasAG(fichero);
 		AlgoritmoAG alg = AlgoritmoAG.of(p);
 		alg.ejecuta();
-		
+				
 		System.out.println("================================");
 		System.out.println(alg.bestSolution());
 		System.out.println("================================");
@@ -30,10 +30,10 @@ public class TestProductosTransportesAG {
 	
 	public static void main(String[] args) {
 		System.out.println(Titles.F1);
-		test("ficheros/ej3/Ejercicio3DatosEntrada1.txt");
+		test("ficheros/ej4/Ejercicio4DatosEntrada1.txt");
 		System.out.println(Titles.F2);
-		test("ficheros/ej3/Ejercicio3DatosEntrada2.txt");
+		test("ficheros/ej4/Ejercicio4DatosEntrada2.txt");
 		System.out.println(Titles.F3);
-		test("ficheros/ej3/Ejercicio3DatosEntrada3.txt");
+		test("ficheros/ej4/Ejercicio4DatosEntrada3.txt");
 	}
 }

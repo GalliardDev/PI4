@@ -7,6 +7,7 @@ import us.lsi.ag.agchromosomes.AlgoritmoAG;
 import us.lsi.ag.agstopping.StoppingConditionFactory;
 
 public class TestHuertosAG {
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static void test(String fichero) {
 		Locale.setDefault(Locale.of("en", "US"));
 		
@@ -21,7 +22,7 @@ public class TestHuertosAG {
 		DatosHuertosAG p = new DatosHuertosAG(fichero);
 		AlgoritmoAG alg = AlgoritmoAG.of(p);
 		alg.ejecuta();
-		
+				
 		System.out.println("================================");
 		System.out.println(alg.bestSolution());
 		System.out.println("================================");

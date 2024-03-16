@@ -47,6 +47,14 @@ public class DatosProductosCategorias {
 		return productos.get(i).getPrecio();
 	}
 	
+	public static Integer getValoracion(Integer i) {
+		return productos.get(i).getValoracion();
+	}
+	
+	public static Integer getCategoria(Integer i) {
+		return productos.get(i).getCategoria();
+	}
+	
 	public static Integer getMediaValoraciones(Integer i) {
 		return productos.stream()
 			.mapToInt(p -> p.getValoracion())

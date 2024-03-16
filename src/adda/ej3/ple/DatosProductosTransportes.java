@@ -8,8 +8,8 @@ import us.lsi.common.Files2;
 public class DatosProductosTransportes {
 	public static int N; // productos
 	public static int M; // destinos
-	private static List<Producto> productos;
-	private static List<Destino> destinos;
+	public static List<Producto> productos;
+	public static List<Destino> destinos;
 	
 	public static void toConsole() {
 		System.out.println("Productos:\n" + productos.stream()
