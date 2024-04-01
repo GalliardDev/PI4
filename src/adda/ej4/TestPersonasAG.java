@@ -1,7 +1,8 @@
-package adda.ej4.ag;
+package adda.ej4;
 
 import java.util.Locale;
 
+import adda.ej4.common.PermutationPersonasAG;
 import adda.util.Titles;
 import us.lsi.ag.agchromosomes.AlgoritmoAG;
 import us.lsi.ag.agstopping.StoppingConditionFactory;
@@ -12,14 +13,14 @@ public class TestPersonasAG {
 		Locale.setDefault(Locale.of("en", "US"));
 		
 		AlgoritmoAG.ELITISM_RATE  = 0.20;
-		AlgoritmoAG.CROSSOVER_RATE = 0.8;
-		AlgoritmoAG.MUTATION_RATE = 0.7;
-		AlgoritmoAG.POPULATION_SIZE = 50;
+		AlgoritmoAG.CROSSOVER_RATE = 0.95;
+		AlgoritmoAG.MUTATION_RATE = 0.8;
+		AlgoritmoAG.POPULATION_SIZE = 1000;
 		
-		StoppingConditionFactory.NUM_GENERATIONS = 5000;
+		StoppingConditionFactory.NUM_GENERATIONS = 1000;
 		StoppingConditionFactory.stoppingConditionType = StoppingConditionFactory.StoppingConditionType.GenerationCount;
 		
-		DatosPersonasAG p = new DatosPersonasAG(fichero);
+		PermutationPersonasAG p = new PermutationPersonasAG(fichero);
 		AlgoritmoAG alg = AlgoritmoAG.of(p);
 		alg.ejecuta();
 				

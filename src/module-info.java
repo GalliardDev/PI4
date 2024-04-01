@@ -6,4 +6,5 @@ module PI4 {
 	exports adda.ej1;
 	exports adda.ej2;
 	exports adda.ej3;
+	exports adda.ej4;
 }
