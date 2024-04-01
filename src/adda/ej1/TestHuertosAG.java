@@ -1,25 +1,27 @@
-package adda.ej1.ag;
+package adda.ej1;
 
 import java.util.Locale;
 
+import adda.ej1.common.InRangeVerdurasAG;
 import adda.util.Titles;
 import us.lsi.ag.agchromosomes.AlgoritmoAG;
 import us.lsi.ag.agstopping.StoppingConditionFactory;
 
 public class TestHuertosAG {
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "rawtypes" })
 	private static void test(String fichero) {
 		Locale.setDefault(Locale.of("en", "US"));
 		
-		AlgoritmoAG.ELITISM_RATE  = 0.20;
-		AlgoritmoAG.CROSSOVER_RATE = 0.8;
-		AlgoritmoAG.MUTATION_RATE = 0.7;
-		AlgoritmoAG.POPULATION_SIZE = 50;
+		AlgoritmoAG.ELITISM_RATE  = 0.10;
+		AlgoritmoAG.CROSSOVER_RATE = 0.95;
+		AlgoritmoAG.MUTATION_RATE = 0.8;
+		AlgoritmoAG.POPULATION_SIZE = 1000;
 		
-		StoppingConditionFactory.NUM_GENERATIONS = 5000;
-		StoppingConditionFactory.stoppingConditionType = StoppingConditionFactory.StoppingConditionType.GenerationCount;
+		StoppingConditionFactory.NUM_GENERATIONS = 1000;
+		StoppingConditionFactory.stoppingConditionType = 
+				StoppingConditionFactory.StoppingConditionType.GenerationCount;
 		
-		DatosHuertosAG p = new DatosHuertosAG(fichero);
+		InRangeVerdurasAG p = new InRangeVerdurasAG(fichero);
 		AlgoritmoAG alg = AlgoritmoAG.of(p);
 		alg.ejecuta();
 				
